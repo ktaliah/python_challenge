@@ -49,6 +49,16 @@ print("Election Results")
 print("------------------------------")
 print("Total Votes: " + str(vote_count))
 print("------------------------------")
+
+winner_name = ""
+winner_count = 0
 for candidate in candidate_list:
     percent = (candidate['count']/vote_count) * 100
     print(candidate['name'] + ": " + str('%.3f' % percent) + "% " + "(" + str(candidate['count']) + ")")
+
+    if winner_count < candidate['count']:
+        winner_name = candidate['name']
+        winner_count = candidate['count']
+print("------------------------------")
+print("Winner: " + winner_name)
+print("------------------------------")
